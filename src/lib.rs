@@ -1,15 +1,17 @@
 #![cfg_attr(feature = "nightly", feature(allocator_api))]
 #![doc = include_str!("../README.md")]
 
-mod raw;
-mod shared;
-mod vector;
 mod drain;
+mod raw;
+#[cfg(feature = "rkyv")]
+mod rkyv;
+mod shared;
 mod splice;
+mod vector;
 
 pub use raw::{AtomicRefCount, BufferSize, DefaultRefCount, RefCount};
 pub use shared::{AtomicSharedVector, RefCountedVector, SharedVector};
-pub use vector::{Vector, RawVector};
+pub use vector::{RawVector, Vector};
 
 pub mod alloc {
     pub use allocator_api2::alloc::{AllocError, Allocator, Global};

@@ -22,6 +22,7 @@ debug = true
 
 [dependencies]
 allocator-api2 = "0.2.4"
+rkyv = { version = "0.7.42", optional = true }
 
 [features]
 default = ["std"]
